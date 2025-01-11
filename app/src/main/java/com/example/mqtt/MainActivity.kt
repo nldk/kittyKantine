@@ -1,5 +1,7 @@
 package com.example.mqtt
 
+import android.content.Context
+import android.content.Context.MODE_PRIVATE
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -31,17 +33,16 @@ import kotlinx.coroutines.runBlocking
 import java.nio.charset.StandardCharsets
 
 class MainActivity : ComponentActivity() {
-    val mqttServerUri = ""
-    val username = ""
-    val password = ""
-    var messageState by mutableStateOf("updating")
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        try {
+
+        }
         super.onCreate(savedInstanceState)
-        val host = "5e0f1dfcbc8748188a27521c8c41cbcf.s1.eu.hivemq.cloud"
-        val username = "MqttApp"
-        val password = "1#9ZiI3o9RWfn*sD0nRA!oBkUr7cZX1di2QuH4E!Y4fV8Z4^Vt"
+        val host = ""
+        val username = ""
+        val password = ""
 
         val client: Mqtt5Client = Mqtt5Client.builder().identifier(generateRandomString(20))
             .serverHost(host).automaticReconnectWithDefaultConfig()
@@ -124,4 +125,16 @@ fun generateRandomString(len: Int = 15): String{
     return (0..len-1).map {
         alphanumerics.toList().random()
     }.joinToString("")
+}
+fun save(context: Context, filename:String, content:String){
+    val fileContents = content
+    context.openFileOutput(filename, MODE_PRIVATE).use {
+        it.write(fileContents.toByteArray())
+    }
+}
+fun load(context: Context, filename:String):String{
+    val content = context.openFileInput(filename).bufferedReader().use {
+        it.readText()
+    }
+    return content
 }
