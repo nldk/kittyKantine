@@ -31,9 +31,9 @@ import kotlinx.coroutines.runBlocking
 import java.nio.charset.StandardCharsets
 
 class MainActivity : ComponentActivity() {
-    val mqttServerUri = "tcp://5e0f1dfcbc8748188a27521c8c41cbcf.s1.eu.hivemq.cloud:8883"
-    val username = "testaccount"
-    val password = "Niel2011vnt"
+    val mqttServerUri = ""
+    val username = ""
+    val password = ""
     var messageState by mutableStateOf("updating")
 
 
@@ -43,7 +43,7 @@ class MainActivity : ComponentActivity() {
         val username = "MqttApp"
         val password = "1#9ZiI3o9RWfn*sD0nRA!oBkUr7cZX1di2QuH4E!Y4fV8Z4^Vt"
 
-        val client: Mqtt5Client = Mqtt5Client.builder().identifier(generateRandomString(20)) // use a unique identifier
+        val client: Mqtt5Client = Mqtt5Client.builder().identifier(generateRandomString(20))
             .serverHost(host).automaticReconnectWithDefaultConfig()
             .serverPort(8883)
             .sslWithDefaultConfig()
