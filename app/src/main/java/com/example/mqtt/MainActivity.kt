@@ -48,7 +48,7 @@ class MainActivity : ComponentActivity() {
 
             }
             super.onCreate(savedInstanceState)
-            val host = ""
+            val host = "5e0f1dfcbc8748188a27521c8c41cbcf.s1.eu.hivemq.cloud"
             var username = ""
             var password = ""
             var messageState by mutableStateOf("not updated")
@@ -98,24 +98,29 @@ class MainActivity : ComponentActivity() {
                         var Password by remember { mutableStateOf("") }
                         Column {
                             Spacer(modifier = Modifier.height(35.dp))
-                            Text(text = "username")
-                            OutlinedTextField(value = name, onValueChange = { text ->
-                                name = text
-                            })
-                            Text(text = "password")
-                            OutlinedTextField(value = Password, onValueChange = { text ->
-                                Password = text
-                            })
-                            Button(
-                                onClick = {
-                                    save(applicationContext, "firstStart", "false")
-                                    save(applicationContext,"username",name)
-                                    save(applicationContext,"pass",Password)
-                                    save(applicationContext,"id",generateRandomString(20))
-                                    recreate()
-                                },
-                            ) {
-                                Text("OK")
+                            Row {
+                                Spacer(Modifier.width(10.dp))
+                                Column {
+                                    Text(text = "username")
+                                    OutlinedTextField(value = name, onValueChange = { text ->
+                                        name = text
+                                    })
+                                    Text(text = "password")
+                                    OutlinedTextField(value = Password, onValueChange = { text ->
+                                        Password = text
+                                    })
+                                    Button(
+                                        onClick = {
+                                            save(applicationContext, "firstStart", "false")
+                                            save(applicationContext,"username",name)
+                                            save(applicationContext,"pass",Password)
+                                            save(applicationContext,"id",generateRandomString(20))
+                                            recreate()
+                                        },
+                                    ) {
+                                        Text("OK")
+                                    }
+                                }
                             }
                         }
                     }
