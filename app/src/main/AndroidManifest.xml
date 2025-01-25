@@ -10,7 +10,7 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/icon"
         android:label="kattenbak"
-        android:roundIcon="@mipmap/icon"
+        android:roundIcon="@mipmap/round_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.Mqtt"
         tools:targetApi="31">
