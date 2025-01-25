@@ -9,7 +9,7 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/icon"
-        android:label="kattenbak"
+        android:label="kitty kantine"
         android:roundIcon="@mipmap/round_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.Mqtt"

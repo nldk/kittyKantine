@@ -48,7 +48,7 @@ class MainActivity : ComponentActivity() {
 
             }
             super.onCreate(savedInstanceState)
-            val host = ""
+            val host = "5e0f1dfcbc8748188a27521c8c41cbcf.s1.eu.hivemq.cloud"
             var username = ""
             var password = ""
             var messageState by mutableStateOf("not updated")
