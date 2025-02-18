@@ -48,13 +48,14 @@ class MainActivity : ComponentActivity() {
 
             }
             super.onCreate(savedInstanceState)
-            val host = "5e0f1dfcbc8748188a27521c8c41cbcf.s1.eu.hivemq.cloud"
+            var host = ""
             var username = ""
             var password = ""
             var messageState by mutableStateOf("not updated")
             lateinit var client: Mqtt5Client
 
             if (!firstStart) {
+                host = load(applicationContext,"host")
                 username = load(applicationContext,"username")
                 password = load(applicationContext,"pass")
                 client = Mqtt5Client.builder().identifier(load(applicationContext,"id"))
@@ -96,11 +97,16 @@ class MainActivity : ComponentActivity() {
                     } else {
                         var name by remember { mutableStateOf("") }
                         var Password by remember { mutableStateOf("") }
+                        var host by remember { mutableStateOf("") }
                         Column {
                             Spacer(modifier = Modifier.height(35.dp))
                             Row {
                                 Spacer(Modifier.width(10.dp))
                                 Column {
+                                    Text(text = "host")
+                                    OutlinedTextField(value = host, onValueChange = { text ->
+                                        host = text
+                                    })
                                     Text(text = "username")
                                     OutlinedTextField(value = name, onValueChange = { text ->
                                         name = text
@@ -111,6 +117,7 @@ class MainActivity : ComponentActivity() {
                                     })
                                     Button(
                                         onClick = {
+                                            save(applicationContext, "host",host)
                                             save(applicationContext, "firstStart", "false")
                                             save(applicationContext,"username",name)
                                             save(applicationContext,"pass",Password)
