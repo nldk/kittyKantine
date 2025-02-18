@@ -1,1 +1,1 @@
-To install the app:https://drive.google.com/file/d/1tz7V0qoPMFIFYJAPUCiX-MXj7S4EcsoD/view?usp=sharing
+To install the app: https://drive.google.com/file/d/1xkRpkyoylG_aqXLvjd1nWX2aTMzNV_FW/view?usp=sharing
